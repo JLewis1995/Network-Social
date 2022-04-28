@@ -1,0 +1,21 @@
+{
+  "name": "network-social",
+  "version": "1.0.0",
+  "description": "Command Line Social Network",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "none at this time"
+  },
+  "repository": {
+    "type": "git",
+    "url": "tbd"
+  },
+  "author": "Jacob Lewis",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.0",
+    "mongoose": "^6.3.1"
+  },
+  "devDependencies": {}
+}
