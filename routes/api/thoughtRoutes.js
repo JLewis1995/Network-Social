@@ -1,7 +1,7 @@
 // current route http://localhost:3001/api/thoughts
-const { Thought, User, Reaction} = require('../../models');
+const { Thought, User, Reaction } = require("../../models");
 
-const router = require('express').Router();
+const router = require("express").Router();
 const {
   getThoughts,
   getSingleThought,
@@ -9,17 +9,20 @@ const {
   updateThought,
   deleteThought,
   addReaction,
-  removeReaction
-} = require('../../controllers/thoughtController')
+  removeReaction,
+} = require("../../controllers/thoughtController");
 
 //api/thoughts/
-router.route('/').get(getThoughts).post(createThought);
+router.route("/").get(getThoughts).post(createThought);
 
 //api/thoughts/:thoughtId
-router.route('/:thoughtId').get(getSingleThought).delete(deleteThought).put(updateThought);
+router
+  .route("/:thoughtId")
+  .get(getSingleThought)
+  .delete(deleteThought)
+  .put(updateThought);
 
 // /api/thoughts/:thoughtId/reactions
-router.route('/:thoughtId/reactions').post(addReaction).delete(removeReaction);
+router.route("/:thoughtId/reactions").post(addReaction).delete(removeReaction);
 
 module.exports = router;
-

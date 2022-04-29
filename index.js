@@ -1,6 +1,6 @@
-const express = require('express');
-const db = require('./config/connnection');
-const routes = require('./routes');
+const express = require("express");
+const db = require("./config/connnection");
+const routes = require("./routes");
 
 const cwd = process.cwd();
 
@@ -11,9 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(routes);
 
-db.once('open', () => {
+db.once("open", () => {
   app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}!`);
   });
 });
-

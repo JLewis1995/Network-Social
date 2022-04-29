@@ -1,23 +1,23 @@
-const { Schema, model } = require('mongoose');
-const reactionSchema = require('./Reaction');
+const { Schema, model } = require("mongoose");
+const reactionSchema = require("./Reaction");
 
 // Schema to create Thought model
 const thoughtSchema = new Schema(
   {
     thoughtText: {
-        type: String,
-        required: true,
-        maxlength: 280,
-        minlength: 1,
+      type: String,
+      required: true,
+      maxlength: 280,
+      minlength: 1,
     },
     createdAt: {
-        type: Date,
-        default: Date.now,
-        // getter method to format timestamp on query
+      type: Date,
+      default: Date.now,
+      // getter method to format timestamp on query
     },
     username: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
     reactions: [reactionSchema],
   },
@@ -33,13 +33,13 @@ const thoughtSchema = new Schema(
 );
 
 thoughtSchema
-  .virtual('reactionCount')
+  .virtual("reactionCount")
   // Getter
   .get(function () {
     return `${this.reactions.length}`;
-  })
-  
+  });
+
 // Initialize our Thought model
-const Thought = model('thought', thoughtSchema);
+const Thought = model("thought", thoughtSchema);
 
 module.exports = Thought;
