@@ -22,7 +22,18 @@ module.exports = {
     //   "userId": "5edff358a0fcb779aa7b118b"
     // }
     Thought.create(req.body)
-      .then((thought) => res.json(thought))
+      .then((thought) => {
+       function addToUser(info) {
+         User.findOneAndUpdate(
+           { username: info.username },
+           {$addToSet: { thoughts: info._id }},
+           { new: true }
+         )
+         .catch((err) => console.log(err))
+       }
+       addToUser(thought)
+        res.json(thought)
+      })
       .catch((err) => res.status(500).json(err));
   },
   updateThought(req, res) {
@@ -39,7 +50,7 @@ module.exports = {
             message: `no thought found with this id ${req.params.thoughtId}`,
           })
         : res.json(thought)
-    );
+    )
   },
   deleteThought(req, res) {
     Thought.findByIdAndDelete({ _id: req.params.thoughtId }).then((thought) =>
