@@ -222,7 +222,7 @@ This Challenge is graded based on the following criteria:
 
 ### Walkthrough Video: 37%
 
-* A walkthrough video that demonstrates the functionality of the social media API must be submitted, and a link to the video should be included in your README file.
+* A walkthrough video that demonstrates the functionality ofYes the social media API must be submitted, and a link to the video should be included in your README file.
 
   * The walkthrough video must show all of the technical acceptance criteria being met.
 
